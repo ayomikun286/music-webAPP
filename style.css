@@ -140,8 +140,7 @@ align-items: center;
     display: flex;
     gap: 20px;
     align-items: center;
-    flex: 1;
-
+   
 }
 
 .musicIMG img{
@@ -152,9 +151,11 @@ align-items: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 2;
+    width: 50%;
     justify-content: center;
     gap: 20px;
+    height: 100%;
+    padding: 10px;
    
 }
 
@@ -210,9 +211,7 @@ align-items: center;
 }
 
 
-.volume{
-    flex: 1;
-}
+
 
 @media (max-width:900px) {
 .volume{
@@ -224,9 +223,9 @@ align-items: center;
 #control{
     align-items: end;
     display: flex;
-  
-    flex: 1;
-
+    width: 50%;
+   
+    height: 100%;
 }
 
 .btnControl{
@@ -234,7 +233,8 @@ align-items: center;
     width: 50%;
 }
 .musicIMG{
-    flex: 1;
+    width: 50%;
+   
 }
     nav{
         justify-content: space-between;
