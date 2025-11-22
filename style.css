@@ -224,7 +224,17 @@ align-items: center;
 #control{
     align-items: end;
     display: flex;
+  
+    flex: 1;
 
+}
+
+.btnControl{
+  gap: 9px;
+    width: 50%;
+}
+.musicIMG{
+    flex: 1;
 }
     nav{
         justify-content: space-between;
@@ -243,6 +253,6 @@ align-items: center;
 
     footer{
         justify-content: space-between;
-        padding: 8px;
+        padding: 5px 10px;
     }
 }
