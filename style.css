@@ -17,6 +17,7 @@ body{
     margin: 0px;
     padding:0px;
      font-family: "Montserrat", sans-serif;
+    
 }
 
 nav{
@@ -28,6 +29,7 @@ nav{
     left: 0px;
     width: 100%;
 padding: 10px;
+z-index: 9999;
 }
 
 .logo{
@@ -212,10 +214,88 @@ align-items: center;
     width: 100%;
 }
 
+.heroSection{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height:500px ;
+   
+
+  
+
+}
+
+.leftSide{
+    background-color: var(--card);
+    width: 10%;
+    height: 100%;
+  
+}
+
+.centerContent{
+    width: 60%;
+    height: 100%;
+    background-color: var(--card);
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+
+.centerContent::-webkit-scrollbar{
+    display: none;
+}
+
+.rightSide::-webkit-scrollbar{
+    display: none;
+}
+
+.rightSide{
+    width: 30%;
+    height: 100%;
+    background-color: var(--card);
+     overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+
+
+
+
+
+
 
 
 
 @media (max-width:900px) {
+
+
+
+    .rightSide{
+        position: fixed;
+        width: 100%;
+        background-color: blue;
+        right: 800px;
+
+    }
+    .centerContent{
+        width: 100%;
+
+    }
+
+    .leftSide{
+        position: fixed;
+        left: -800px;
+        width: 30%;
+    }
+
+    .heroSection{
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 80px;
+        padding: 8px;
+
+    }
 .volume{
     display: none;
 
@@ -247,7 +327,7 @@ align-items: center;
         left: 0px;
         top: 85px;
         width: 100%;
-        padding: 0px 10px;
+        padding: 8px 10px;
        
         background-color: var(--background-color);
 
