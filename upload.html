@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 
+
+        }
+        
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <label for="image">
+            Upload song:
+            <input type="file" name="file" id="file">
+        </label>
+        <label for="name">
+            Artist name:
+            <input type="text" id="Name">
+        </label>
+      
+        <label for="title">
+              Music title:
+            <input type="text" id="title">
+
+        </label>
+        <button id="save">Upload</button>
+        <p id="mesg"></p>
+    </form>
+
+
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
