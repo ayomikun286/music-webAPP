@@ -384,6 +384,7 @@ section{
     right: 20px;
     bottom: 20%;
     transition: 0.5s ease;
+    color: var(--background-color);
 }
 
 
