@@ -396,7 +396,9 @@ section{
 
 @media (max-width:900px) {
 
-
+body{
+    align-items: start;
+}
 
     .rightSide{
         position: fixed;
@@ -456,7 +458,7 @@ section{
         top: 85px;
         width: 100%;
         padding: 8px 10px;
-       
+        display: none;
         background-color: var(--background-color);
 
     }
