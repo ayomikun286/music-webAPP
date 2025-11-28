@@ -55,108 +55,52 @@
 
                 <div class="heroCard" id="heroCard"></div>
 
-
                 <div class="musicLIst" id="musicList">
                     <h2>Recently played </h2>
                     <div class="songRoll" id="songRoll">
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
+                       
                     </div>
                 </div>
-                <div class="musicLIst" id="musicList">
-                    <h2>Recently played </h2>
-                    <div class="songRoll" id="songRoll">
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                        <div class="track">
-                            <img src="image/muisc 1.jpg" alt="" width="100">
-                            <p>make money</p>
-                            <button id="playTrackBtn"><i class="fa-solid fa-play"></i></button>
-                        </div>
-                    </div>
-                </div>
+               
 
 
 
-
-
-
+               
             </div>
 
 
             <!-- right-- -->
-            <div class="rightSide"> </div>
+            <div class="rightSide">
+
+                <div id="loaded">
+                    <div class="rolling"></div>
+                </div>
+                <form id="form">
+                     <label for="image">
+                        Upload image:
+                        <input type="file" name="file" id="image">
+                    </label>
+                    <label for="file">
+                        Upload song:
+                        <input type="file" name="file" id="file">
+                    </label>
+                    <label for="name">
+                        Artist name:
+                        <input type="text" id="Name">
+                    </label>
+
+                    <label for="title">
+                        Music title:
+                        <input type="text" id="title">
+
+                    </label>
+                    <button id="ave">Upload</button>
+
+                    <p id="mesg"></p>
+                </form>
+
+                <button id="delet">delete</button>
+            </div>
         </div>
 
 
@@ -172,16 +116,15 @@
         <div class="musicIMG">
             <img src="image/custormer2.png" alt="">
             <div class="trackDetails">
-                <h3 id="title">Dying</h3>
-                <p id="">Ayomikun</p>
+                <h3 id="titlE"></h3>
+                <p id="Tabname"></p>
             </div>
         </div>
-        <audio src="https://res.cloudinary.com/doua1o7qw/video/upload/v1763882915/vi9y4avi94fsyrycgghj.mp3"
-            type="audio/mpeg" id="audio"></audio>
+        <audio src="" type="audio/mpeg" id="audio"></audio>
         <div id="control">
             <div class="btnControl">
                 <button id="pref"><i class="fa-solid fa-backward-step"></i></button>
-                <button id="play"><i class="fa-solid fa-play"></i></button>
+                <button id="play"  class="playTabBtn"><i class="fa-solid fa-play"></i></button>
                 <button id="next"><i class="fa-solid fa-forward-step"></i></button>
             </div>
 
@@ -203,7 +146,8 @@
 
 
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+
 </body>
 
 </html>

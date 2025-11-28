@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+  </head>
+  <body>
+    <div id="musicList"></div>
+
+    <div class="control">
+      <button id="play">^</button>
+      <audio src="" id="audio"></audio>
+    </div>
+
+    <script>
+      const musicIMG = [
+        { name: "music 1", url: "music/kooko.mp3" },
+        { name: "music 2", url: "music/mofti.mp3" },
+      ];
+
+      let currentIndex = 0;
+
+      const musicList = document.getElementById("musicList");
+      musicList.innerHTML = "";
+      musicIMG.forEach((songs) => {
+        const tracks = document.createElement("div");
+        tracks.classList.add("tracks");
+
+        tracks.innerHTML = `
+            
+                <h1>${songs.name}</h1>
+
+                <button class="songsBtn" data-src="${songs.url}">play</button>
+            
+            `;
+
+        musicList.appendChild(tracks);
+      });
+
+      function playsongs() {
+        const eachBTN = document.querySelectorAll(".songsBtn");
+
+        const audio = document.getElementById("audio");
+        eachBTN.forEach((btn , index) => {
+          btn.addEventListener("click", () => {
+            const url = btn.getAttribute("data-src");
+            currentIndex = index;
+            audio.src = url;
+            audio.play();
+          });
+        });
+      }
+      playsongs();
+
+        function playBtn(){
+
+          const play = document.getElementById('play');
+          const audio = document.getElementById('audio');
+
+          play.addEventListener('click', ()=>{
+
+              if(audio.paused){
+                   audio.play();
+                   play.textContent = "~"
+              }else{
+                  audio.pause();
+                  play.textContent = "^"
+              }
+
+          });
+
         }
+        playBtn();
 
-        form{
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 20px;
-            box-shadow: 0px 0px 10px 
+
+        function playNextSongOnArray(){
+      const audioAll = document.getElementById('audio');
+             audioAll.src = musicIMG[currentIndex].url;
+            currentIndex++;
+
+            
 
         }
-        
-    </style>
-</head>
-
-<body>
-    <form id="form">
-        <label for="image">
-            Upload song:
-            <input type="file" name="file" id="file">
-        </label>
-        <label for="name">
-            Artist name:
-            <input type="text" id="Name">
-        </label>
-      
-        <label for="title">
-              Music title:
-            <input type="text" id="title">
-
-        </label>
-        <button id="save">Upload</button>
-        <p id="mesg"></p>
-    </form>
-
-
-
-
-
-    <script src="script.js"></script>
-
-</body>
-
+        playNextSongOnArray();
+    </script>
+  </body>
 </html>

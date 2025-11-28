@@ -175,6 +175,15 @@ align-items: center;
     cursor: pointer;
 }
 
+.progress{
+    background-color:var(--card);
+    height: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .progress-bar{
     width: 100%;
     background-color: var(--accet);
@@ -209,6 +218,7 @@ align-items: center;
 
 #play{
     font-size: clamp(1.8rem, 5vw , 2.5rem);
+    cursor: pointer;
 }
 
 
@@ -279,6 +289,69 @@ section{
      overflow-y: scroll;
     scrollbar-width: none;
     border-radius: 12px;
+    padding: 15px;
+    position: relative;
+}
+
+.rightSide form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+
+}
+
+.rightSide input{
+    border: none;
+    width: 100%;
+    height: 30px;
+    font: 16px;
+}
+
+.rightSide label{
+    font-size: clamp(1rem, 5vw, 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rightSide button{
+    height: 30px;
+
+}
+
+#loaded{
+    display: none;
+    width: 100%;
+    height: 100%;
+   backdrop-filter: blur(10px);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+   
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.rolling{
+    width: 100px;
+    height: 100px;
+   
+    border-radius:50% ;
+    border: 5px solid var(--accet);
+    border-top: 5px solid var(--card);
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    form{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(350deg);
+    }
+    
 }
 
 
@@ -327,12 +400,13 @@ section{
     overflow-y: hidden;
     width: 100%;
    gap: 10px;
+   margin-bottom: 40px;
 
 
 }
-.songRoll::-webkit-scrollbar{
-    display: none;
-}
+/* .songRoll::-webkit-scrollbar{
+    display: flex;
+} */
 
 
 .track{

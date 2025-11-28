@@ -1,131 +1,385 @@
+import { saveMusicToCloud } from "./cloudStorage.js"
+import { allMusic } from "./music.js";
+
+saveMusicToCloud();
 
 
-function playMUsic() {
+
+let currentIndex = 0;
+const songsLIST = document.getElementById('songRoll');
+
+async function loadSong() {
+    try {
+        const songs = await allMusic();
+        console.log(songs);
+
+        songsLIST.innerHTML = "";
+
+        songs.forEach(allSONGS => {
+
+
+            const track = document.createElement('div');
+            track.classList.add('track');
+            track.innerHTML = `
+            
+                    <img src="" alt="" width="100">
+                    <p>${allSONGS.title}</p>
+                    <button class="playTrackBtn" data-url="${allSONGS.url}" ><i class="fa-solid fa-play"></i></button>
+            
+            `
+            songsLIST.appendChild(track);
+            console.log(allSONGS.title);
+
+        });
+
+
+        playTracks();
+
+
+    } catch (err) {
+        console.log("Error:", err.message)
+    };
+
+
+
+
+}
+
+loadSong();
+
+
+function playTracks() {
     const audio = document.getElementById('audio');
-    const playBTN = document.querySelector('#play');
-    const icon = document.querySelector('#play i');
+    const playTrackBtn = document.querySelectorAll('.playTrackBtn');
+    const iconAll = document.querySelector('#play i')
+    playTrackBtn.forEach((btn, index) => {
+
+        btn.addEventListener('click', async () => {
+            const icon = btn.querySelector('i')
+            const url = btn.getAttribute("data-url");
+            currentIndex = index;
+            audio.src = url;
+            await audio.play();
+            updateSongTab();
+
+            playTrackBtn.forEach(b => {
+                b.querySelector('i').classList.replace('fa-pause', 'fa-play');
+            });
+
+            icon.classList.replace('fa-play', 'fa-pause');
+            iconAll.classList.replace('fa-play', 'fa-pause');
+        });
+
+    });
+};
 
 
-    playBTN.addEventListener('click', () => {
+
+
+
+
+
+function playBTN() {
+    const audio = document.getElementById('audio');
+    const playtrack = document.getElementById('play');
+    const icon = document.querySelector('#play i')
+    playtrack.addEventListener('click', () => {
         if (audio.paused) {
             audio.play();
-            icon.classList.remove('fa-play');
-            icon.classList.add('fa-pause');
+            icon.classList.replace('fa-play', 'fa-pause');
         } else {
             audio.pause();
+            icon.classList.replace('fa-pause', 'fa-play');
+        }
 
-            icon.classList.remove('fa-pause')
-            icon.classList.add('fa-play');
+
+
+    });
+};
+playBTN();
+
+
+async function playAlltracks() {
+
+    const playTrackBtn = document.querySelectorAll('.playTrackBtn');
+
+    try {
+        const allSongs = await allMusic();
+
+        const audioForAll = document.getElementById('audio');
+        currentIndex++;
+
+        audioForAll.src = allSongs[currentIndex].url;
+
+
+        if (currentIndex >= allSongs.length) {
+            currentIndex = 0;
+        };
+
+        playTrackBtn.forEach(b => {
+            b.querySelector('i').classList.replace('fa-pause', 'fa-play');
+        });
+
+        playTrackBtn[currentIndex].querySelector('i').classList.replace('fa-play', 'fa-pause');
+
+        audioForAll.play();
+        updateSongTab()
+
+
+    } catch (err) {
+        console.log("Error:", err.message)
+    }
+
+
+
+
+
+};
+
+
+async function updateSongTab(){
+    try{ 
+        const Songs = await allMusic();
+        const songtitle = document.getElementById('titlE');
+        const Tabname = document.getElementById('Tabname');
+
+        if(!Songs[currentIndex]){
+            songtitle.textContent = "Now playing: -- "
+
+            return;
 
         }
+        songtitle.textContent = `${Songs[currentIndex].title}`
+        Tabname.textContent =`${Songs[currentIndex].name}`
+
+    }catch(err){
+        console.log("Now Playing error", err.message)
+
+    }
+};
+
+
+async function nextSongArray(){
+   try{
+
+     const SongS = await allMusic();
+    const next = document.getElementById('next');
+      const playTrackBtn = document.querySelectorAll('.playTrackBtn');
+
+    next.addEventListener('click', async ()=>{
+        currentIndex++;
+        if(currentIndex >= SongS.length){
+            currentIndex = 0 ;
+        }
+
+
+        audio.src = SongS[currentIndex].url;
+        await audio.play();
+
+        updateSongTab();
+
+
+         playTrackBtn.forEach(b => {
+            b.querySelector('i').classList.replace('fa-pause', 'fa-play');
+        });
+         playTrackBtn[currentIndex].querySelector('i').classList.replace('fa-play', 'fa-pause');
+
+
+         const mainBtuIcon = document.querySelectorAll('#play i');
+
+         mainBtuIcon.classList.replace('fa-play', 'fa-pause');
+
+
+    })
+
+   }catch(err){
+       
+     console.log('Error:', err.message);
+   }
+}
+
+nextSongArray();
+
+
+async function prefSongArray(){
+   try{
+
+     const SongS = await allMusic();
+    const pref = document.getElementById('pref');
+      const playTrackBtn = document.querySelectorAll('.playTrackBtn');
+
+    pref.addEventListener('click', async ()=>{
+        currentIndex--;
+        if(currentIndex >= SongS.length){
+            currentIndex = 0 ;
+        }
+
+
+        audio.src = SongS[currentIndex].url;
+        await audio.play();
+
+        updateSongTab();
+
+
+         playTrackBtn.forEach(b => {
+            b.querySelector('i').classList.replace('fa-pause', 'fa-play');
+        });
+         playTrackBtn[currentIndex].querySelector('i').classList.replace('fa-play', 'fa-pause');
+
+
+         const mainBtuIcon = document.querySelectorAll('#play i');
+
+         mainBtuIcon.classList.replace('fa-play', 'fa-pause');
+
+
+    })
+
+   }catch(err){
+       
+     console.log('Error:', err.message);
+   }
+}
+
+prefSongArray();
+
+
+
+function progressBar(){
+    const progressBar = document.querySelector('.progress-bar');
+    const probar = document.getElementById('proBar');
+     const audio= document.getElementById('audio');
+
+    audio.addEventListener('timeupdate', ()=>{
+        const progressParcent = (audio.currentTime / audio.duration)*100;
+        probar.style.width = `${progressParcent}%`;
+
     });
 
 
 }
-playMUsic();
+
+ progressBar();
 
 
 
 
-const cloudName = "doua1o7qw";
-const uploadPreset = "music_upload";
 
-
-const file = document.getElementById('file');
-const artistName = document.getElementById('Name');
-const title = document.getElementById('title');
-const upLoad = document.getElementById('save')
-
-//--- cloud storage-- ///
-// upLoad.addEventListener('click', async (e) => {
-//     e.preventDefault();
-
-//     const File = file.files[0];
-//     const name = artistName.value.trim();
-//     const Title = title.value.trim();
-
-
-//     if (!File || !name || !Title) {
-//         alert('file the datials ')
-//         return;
-//     }
-
-
-
-//     const formData = new FormData();
-//     formData.append("file", File);
-//     formData.append("upload_preset", uploadPreset);
-
-
-//     const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/auto/upload `, {
-//         method: "POST",
-//         body: formData
-//     });
-
-//     const data = await res.json();
-
-
-//     console.log("uploaded file:", data.secure_url);
-
-//     document.getElementById('form').reset();
-//     document.getElementById('mesg').textContent = ` ${data.secure_url}`;
-
-
-
-//     const backendRes = await fetch('', {
-
-//         method: POST,
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             name: name,
-//             title: Title,
-//             url: data.secure_url,
-//         })
-
-
-
-//     });
-
-//     const backendData = await backendRes.json();
-
-//     console.log('music:', backendData);
-// });
-
-
-
-const heroImages = [
-    { img: "image/prety.jpg" },
-    { img: "image/happy.jpg" },
-    { img: "image/boy.jpg" }
-
-];
-
-
-let i = 0;
-function heroDynamic() {
-
-
-    const heroCard = document.getElementById('heroCard');
+const audio = document.getElementById('audio');
+audio.addEventListener("ended", playAlltracks);
 
 
 
 
-    heroCard.style.backgroundImage = `url(${ heroImages[i].img})`
 
-    i++;
 
-    if (i >=  heroImages.length) { i = 0; }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function heroSectionDy() {
+    const heroImages = [
+        { img: "image/prety.jpg" },
+        { img: "image/happy.jpg" },
+        { img: "image/boy.jpg" }
+
+    ];
+
+
+    let i = 0;
+    function heroDynamic() {
+
+        const heroCard = document.getElementById('heroCard');
+        heroCard.style.backgroundImage = `url(${heroImages[i].img})`
+        i++;
+        if (i >= heroImages.length) { i = 0; };
+    }
+    heroDynamic();
+
+    setInterval(heroDynamic, 5000);
+}
+heroSectionDy();
+
+
+
+
+async function deleteAllSongs() {
+    await fetch('http://localhost:5000/deleteAllMusic', {
+
+        method: "DELETE"
+    });
+
+    await loadSong();
 
 
 }
-heroDynamic();
-
-setInterval(heroDynamic, 3000);
-
-
-
-
-
+document.getElementById('delet').addEventListener('click', deleteAllSongs);
