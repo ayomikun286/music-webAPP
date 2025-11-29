@@ -191,8 +191,9 @@ align-items: center;
     display: flex;
     align-items: center;
     border-radius: 30px;
-    overflow: hidden;
+    /* overflow: hidden; */
     cursor: pointer;
+    justify-content: left ;
 }
 #proBar{
 
@@ -200,14 +201,35 @@ align-items: center;
     width: 0%;
     height: 100%;
     cursor: pointer;
+    transition: 0.8s ease;
+    position: relative;
+     border-radius: 30px;
 
     
 }
+
+#proBar::after{
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background-color:var(--background-color);
+    right: -8px;
+    border-radius: 50%;
+    top: -3px;
+    z-index: 9999;
+
+}
 .progress{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
     width: 100%;
+    gap: 20px;
 
+}
+
+#durationEnd,#durationStart{
+    font-size: 0.8em;
 }
 
 
@@ -404,9 +426,9 @@ section{
 
 
 }
-/* .songRoll::-webkit-scrollbar{
+.songRoll::-webkit-scrollbar{
     display: flex;
-} */
+}
 
 
 .track{

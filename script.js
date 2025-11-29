@@ -248,10 +248,28 @@ function progressBar(){
     const progressBar = document.querySelector('.progress-bar');
     const probar = document.getElementById('proBar');
      const audio= document.getElementById('audio');
+     const durationEnd = document.getElementById('durationEnd');
+     const durationStart = document.getElementById('durationStart');
 
     audio.addEventListener('timeupdate', ()=>{
         const progressParcent = (audio.currentTime / audio.duration)*100;
         probar.style.width = `${progressParcent}%`;
+       
+         const currentMin = Math.floor(audio.currentTime / 60);
+        const currentSec = Math.floor(audio.currentTime % 60);
+        const totalMin = Math.floor(audio.duration / 60);
+        const totalSec = Math.floor(audio.duration % 60);
+
+        const currentTimeFormatted = `${currentMin}:${currentSec < 10 ? '0' : ''}${currentSec}`;
+        const totalTimeFormatted = `${totalMin}:${totalSec < 10 ? '0' : ''}${totalSec}`;
+        durationStart.textContent = `${currentTimeFormatted} `;
+        durationEnd.textContent = `${totalTimeFormatted}`;
+
+        if (!isNaN(audio.duration)) {
+ 
+            }
+
+
 
     });
 
