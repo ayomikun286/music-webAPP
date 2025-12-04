@@ -1,12 +1,16 @@
 import { saveMusicToCloud } from "./cloudStorage.js"
 import { allMusic } from "./music.js";
 
+
+
+
 saveMusicToCloud();
 
 
 
 let currentIndex = 0;
 const songsLIST = document.getElementById('songRoll');
+const playerImage = document.getElementById('playerImage')
 
 async function loadSong() {
     try {
@@ -22,9 +26,9 @@ async function loadSong() {
             track.classList.add('track');
             track.innerHTML = `
             
-                    <img src="" alt="" width="100">
+                    <img src="${allSONGS.image}" alt="" width="100%">
                     <p>${allSONGS.title}</p>
-                    <button class="playTrackBtn" data-url="${allSONGS.url}" ><i class="fa-solid fa-play"></i></button>
+                    <button class="playTrackBtn" data-url="${allSONGS.url}" data-img="${allSONGS.image}" ><i class="fa-solid fa-play"></i></button>
             
             `
             songsLIST.appendChild(track);
@@ -57,8 +61,10 @@ function playTracks() {
         btn.addEventListener('click', async () => {
             const icon = btn.querySelector('i')
             const url = btn.getAttribute("data-url");
+            const trackImage = btn.getAttribute("data-img")
             currentIndex = index;
             audio.src = url;
+            playerImage.src = trackImage;
             await audio.play();
             updateSongTab();
 
@@ -82,7 +88,7 @@ function playTracks() {
 function playBTN() {
     const audio = document.getElementById('audio');
     const playtrack = document.getElementById('play');
-    const icon = document.querySelector('#play i')
+    const icon = document.querySelector('#play i');
     playtrack.addEventListener('click', () => {
         if (audio.paused) {
             audio.play();
@@ -283,7 +289,18 @@ function progressBar(){
 
 
 const audio = document.getElementById('audio');
-audio.addEventListener("ended", playAlltracks);
+const icon = document.querySelector('#play i');
+const playTrackBTN = document.querySelectorAll('.playTrackBtn');
+audio.addEventListener("ended", ()=>{
+    playAlltracks();
+    icon.classList.replace('fa-pause', 'fa-play');
+    playTrackBTN.forEach(b =>{
+         b.querySelector('i').classList.replace('fa-pause', 'fa-play');
+        
+    })
+
+
+} );
 
 
 
@@ -391,7 +408,9 @@ heroSectionDy();
 
 
 async function deleteAllSongs() {
-    await fetch('http://localhost:5000/deleteAllMusic', {
+     const loaded = document.getElementById('loaded');
+    
+   const delet = await fetch('http://localhost:5000/deleteAllMusic', {
 
         method: "DELETE"
     });
@@ -400,4 +419,15 @@ async function deleteAllSongs() {
 
 
 }
-document.getElementById('delet').addEventListener('click', deleteAllSongs);
+ 
+document.getElementById('delet').addEventListener('click', ()=>{
+    deleteAllSongs();
+        loaded.style.display = "flex";
+
+        if(delet.ok){
+            loaded.style.display = "none";
+        }
+
+
+
+    })

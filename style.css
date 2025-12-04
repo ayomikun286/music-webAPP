@@ -134,10 +134,11 @@ input::placeholder{
 
 footer{
     background-color: var(--background-color);
+   
     width: 100%;
     position: fixed;
     bottom: 0px;
-    padding: 0px 20px;
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
 align-items: center;
@@ -146,10 +147,13 @@ align-items: center;
 
 .musicIMG{
     display: flex;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
    
+   
 }
+
+
 
 .musicIMG img{
     width: 100%;
@@ -164,6 +168,7 @@ align-items: center;
     gap: 20px;
     height: 100%;
     padding: 10px;
+   
    
 }
 
@@ -182,6 +187,9 @@ align-items: center;
     align-items: center;
     padding: 10px;
     border-radius: 10px;
+    width: 100%;
+    transition: all 0.8s ease-in-out;
+    justify-content: space-between;
 }
 
 .progress-bar{
@@ -230,6 +238,10 @@ align-items: center;
 
 #durationEnd,#durationStart{
     font-size: 0.8em;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
@@ -351,10 +363,28 @@ section{
     position: absolute;
     left: 0px;
     top: 0px;
-   
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    transition: 0.8s ease-in-out;
+    animation: fadein 2s ease;
+   
     
+}
+
+@keyframes fadein {
+    form{
+            opacity: 0;
+            width: 30%;
+            height: 30%;
+        
+        }
+    to{
+         opacity: 1;
+            width: 100%;
+            height: 100%;
+
+    }
 }
 
 .rolling{
@@ -367,11 +397,57 @@ section{
     animation: spin 2s infinite;
 }
 
+.done{
+     width: 100px;
+    height: 100px;
+   
+    border-radius:50% ;
+    border: 5px solid green;
+    overflow: hidden;
+    animation: spin none;
+    
+  
+
+}
+
+.done::before{
+    content: "✅";
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    font-size: 2rem;
+}
+.error{
+      width: 100px;
+    height: 100px;
+   
+    border-radius:50% ;
+    border: 5px solid red;
+    overflow: hidden;
+    animation: spin none;
+     
+}
+.error::before{
+    content: "❌";
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+    font-size: 2rem;
+}
+
 @keyframes spin {
     form{
         transform: rotate(0deg);
+        opacity: 0;
     }to{
         transform: rotate(350deg);
+        opacity: 1;
     }
     
 }
@@ -421,8 +497,11 @@ section{
     overflow-x: scroll;
     overflow-y: hidden;
     width: 100%;
-   gap: 10px;
+   gap: 20px;
    margin-bottom: 40px;
+   /* background-color: red; */
+   align-items: center;
+   padding: 10px 10px;
 
 
 }
@@ -445,6 +524,9 @@ section{
    gap: 10px;
    position: relative;
    padding: 15px 10px;
+   box-sizing: border-box;
+  box-shadow: 0px 0px 8px var(--accet);
+  
  
 }
 
@@ -463,25 +545,35 @@ section{
 }
 
 .track img{
-    width: 90%;
+    width: 80%;
     border-radius: 12px;
 }
 
-#playTrackBtn{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+.playTrackBtn{
+    width: 40px;
+    height: 40px;
     border: none;
-    font-size: 2rem;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    right: 20px;
-    bottom: 20%;
+    font-size: 1.5rem;
     transition: 0.5s ease;
     color: var(--background-color);
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 30%;
+    
 }
+
+#playerImage{
+    border-radius: 50%;
+   
+    
+}
+@keyframes playerDis {
+from{transform: rotate(0deg);}
+to{transform: rotate(360deg);}
+}
+
+
 
 
 
@@ -491,6 +583,44 @@ section{
 
 
 @media (max-width:900px) {
+
+    .progress-bar{
+        background-color: white;
+     
+    }
+
+    .progress #durationStart,#durationEnd{
+        display: none;
+
+    }
+    .progress{
+            position: relative;
+            position: fixed;
+                width: 100%;
+                left: 0px;
+                bottom:0px;
+                z-index: 80;
+                padding: 0px;
+                background-color:transparent;
+                padding: 8px;
+     
+    }
+
+    #pref,#next{
+        display: none;
+    }
+    #proBar{
+        background-color: #252424;
+    }
+
+
+    footer{
+        justify-content: space-between;
+        height: auto;
+      backdrop-filter: blur(30px);
+      
+       
+    }
 
 body{
     align-items: start;
@@ -527,22 +657,34 @@ body{
 
 }
 
+.trackDetails{
+  
+font-size: 0.9rem;
+line-height: 1.5px;
+}
 
 #control{
     align-items: end;
     display: flex;
-    width: 50%;
+    width: 10%;
    
-    height: 100%;
+   
+   
+    
 }
 
 .btnControl{
-  gap: 9px;
+  gap: 2px;
     width: 100%;
 }
 .musicIMG{
-    width: 50%;
+    width: 100%;
+    align-items:center;
+
    
+}
+.musicIMG img{
+    width: 15%;
 }
     nav{
         justify-content: space-between;
@@ -559,8 +701,5 @@ body{
 
     }
 
-    footer{
-        justify-content: space-between;
-        padding: 5px 10px;
-    }
+    
 }

@@ -74,6 +74,7 @@
 
                 <div id="loaded">
                     <div class="rolling"></div>
+                    <p id="success"></p>
                 </div>
                 <form id="form">
                      <label for="image">
@@ -114,13 +115,13 @@
     <footer>
 
         <div class="musicIMG">
-            <img src="image/custormer2.png" alt="">
+            <img id="playerImage" src="image/custormer2.png" alt="">
             <div class="trackDetails">
                 <h3 id="titlE"></h3>
                 <p id="Tabname"></p>
             </div>
         </div>
-        <audio src="" type="audio/mpeg" id="audio"></audio>
+       
         <div id="control">
             <div class="btnControl">
                 <button id="pref"><i class="fa-solid fa-backward-step"></i></button>
@@ -128,14 +129,14 @@
                 <button id="next"><i class="fa-solid fa-forward-step"></i></button>
             </div>
 
-            <div class="progress">
-                 <span id="durationStart"></span>
+             <div class="progress">
+                 <span id="durationStart">0:00</span>
                 <div class="progress-bar">
                     <div id="proBar"></div>
                 </div>
-                <span id="durationEnd" ></span>
-            </div>
-
+                <span id="durationEnd" >0:00</span>
+            </div> 
+                 <audio src="" type="audio/mpeg" id="audio"></audio>
         </div>
         <div class="volume">
             <i class="fa-solid fa-bell"></i>

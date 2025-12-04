@@ -19,16 +19,16 @@ mongoose.connect(process.env.MONGO_URI)
 
         name: String,
         title: String,
-        description: String,
-        url: String
+        url: String,
+        image: String
 
     }));
 
 
     app.post ("/saveMusic", async (req,res)=> {
-        const {name , title, description,url} = req.body;
+        const {name , title,url,image} = req.body;
 
-        await User.create({name, title, description, url});
+        await User.create({name, title,  url, image});
 
         res.json({message: " Track saved!"})
     });
@@ -54,3 +54,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 
     app.listen(5000, ()=>  console.log("Server running on port: http://localhost:5000"));
+
+
+    
