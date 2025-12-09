@@ -635,6 +635,34 @@ section {
 
 
 }
+.mobileBtnControl{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+
+
+}
+
+#MBplay{
+    border: none;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--card);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     padding: 10px;
+}
+
+
+#MBpref,#MBnext,#repeat,#shuffle{
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+}
 
 .mobilePlayer i {
     font-size: 1.5rem;
@@ -715,7 +743,7 @@ section {
     width: 100%;
     height: auto;
     padding: 10px 0px;
-    
+    align-items: center;
 }
 
 
