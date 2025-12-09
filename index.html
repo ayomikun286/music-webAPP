@@ -2,33 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+        rel="stylesheet" />
+    <link href="https://cdn.boxicons.com/3.0.6/fonts/brands/boxicons-brands.min.css" rel="stylesheet" />
 </head>
 
 <body>
-
-
     <header>
         <nav>
             <div class="logo">
                 <h1><span class="my">my</span>MUSIC <span class="app">app</span></h1>
-
             </div>
             <div class="searchDiv">
                 <span class="iconSerch"><i class="fa-solid fa-house"></i></span>
                 <div class="search">
-
-                    <input type="text" placeholder="What do you want to play .... ">
+                    <input type="text" placeholder="What do you want to play .... " />
                 </div>
-
             </div>
 
             <div class="profile">
@@ -36,64 +31,50 @@
                 <i class="fa-solid fa-users"></i>
 
                 <div class="userImg">
-                    <img src="image/custormar3.png" alt="" width="40">
+                    <img src="image/custormar3.png" alt="" width="40" />
                 </div>
-
-
             </div>
         </nav>
     </header>
 
     <section>
         <div class="heroSection">
-
             <!-- left  -->
             <div class="leftSide"></div>
 
             <!-- center    -->
             <div class="centerContent">
-
                 <div class="heroCard" id="heroCard"></div>
 
                 <div class="musicLIst" id="musicList">
-                    <h2>Recently played </h2>
-                    <div class="songRoll" id="songRoll">
-                       
-                    </div>
+                    <h2>Recently played</h2>
+                    <div class="songRoll" id="songRoll"></div>
                 </div>
-               
-
-
-
-               
             </div>
-
 
             <!-- right-- -->
             <div class="rightSide">
-
                 <div id="loaded">
                     <div class="rolling"></div>
                     <p id="success"></p>
                 </div>
                 <form id="form">
-                     <label for="image">
+                    <label for="image">
                         Upload image:
-                        <input type="file" name="file" id="image">
+                        <input type="file" name="file" id="image" />
                     </label>
                     <label for="file">
                         Upload song:
-                        <input type="file" name="file" id="file">
+                        <input type="file" name="file" id="file" />
                     </label>
                     <label for="name">
                         Artist name:
-                        <input type="text" id="Name">
+                        <input type="text" id="Name" />
                     </label>
 
                     <label for="title">
                         Music title:
-                        <input type="text" id="title">
-
+                        <input type="text" id="title" />
                     </label>
                     <button id="ave">Upload</button>
 
@@ -103,54 +84,79 @@
                 <button id="delet">delete</button>
             </div>
         </div>
-
-
-
     </section>
 
+    <section class="mobilePlayDiv">
+        <div class="mobilePlayer">
+            <i class="fa-solid fa-xmark"></i>
+            <p id="actName">hello</p>
+            <i class="fa-solid fa-ellipsis"></i>
+        </div>
+        <div class="modilePlayIMG"></div>
+        <div class="artName-contol">
+            <div id="artNameTitle" class="artNameTitle">
+                <h1>very soon</h1>
+                <p>BNXN,FOLA</p>
+            </div>
+            <div class="downloadSong">
+                <i class="fa-solid fa-download" style="color: #ffffff"></i>
+            </div>
+        </div>
+        <div class="mobileProgress">
+            <div class="progresMobile">
+                <div class="bar"></div>
+            </div>
+            <div class="timeDura">
+                <p>0:00</p>
+                <p>0:00</p>
+            </div>
+        </div>
+        <div class="mobileConto">
+            <i class="fa-solid fa-shuffle"></i>
+            <div class="mobileBtnControl">
+                <button id="MBpref"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="MBplay"><i class="fa-solid fa-play"></i></button>
+                <button id="MBnext"><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+            <i class="fa-solid fa-repeat"></i>
 
-
-
+        </div>
+    </section>
 
     <footer>
-
         <div class="musicIMG">
-            <img id="playerImage" src="image/custormer2.png" alt="">
+            <img id="playerImage" src="image/custormer2.png" alt="" />
             <div class="trackDetails">
                 <h3 id="titlE"></h3>
                 <p id="Tabname"></p>
             </div>
         </div>
-       
+
         <div id="control">
             <div class="btnControl">
                 <button id="pref"><i class="fa-solid fa-backward-step"></i></button>
-                <button id="play"  class="playTabBtn"><i class="fa-solid fa-play"></i></button>
+                <button id="play" class="playTabBtn">
+                    <i class="fa-solid fa-play"></i>
+                </button>
                 <button id="next"><i class="fa-solid fa-forward-step"></i></button>
             </div>
 
-             <div class="progress">
-                 <span id="durationStart">0:00</span>
+            <div class="progress">
+                <span id="durationStart">0:00</span>
                 <div class="progress-bar">
                     <div id="proBar"></div>
                 </div>
-                <span id="durationEnd" >0:00</span>
-            </div> 
-                 <audio src="" type="audio/mpeg" id="audio"></audio>
+                <span id="durationEnd">0:00</span>
+            </div>
+            <audio src="" type="audio/mpeg" id="audio"></audio>
         </div>
         <div class="volume">
             <i class="fa-solid fa-bell"></i>
             <i class="fa-solid fa-users"></i>
-
         </div>
     </footer>
 
-
-
-
-
     <script type="module" src="script.js"></script>
-
 </body>
 
 </html>
