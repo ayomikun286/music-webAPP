@@ -614,6 +614,8 @@ section {
     padding: 10px 20px;
     flex-direction: column;
     background-color: var(--mobile-player);
+
+    padding-bottom: 30px;
     
 
 
