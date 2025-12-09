@@ -3,6 +3,7 @@
 
     --card: rgb(20, 20, 20);
     --accet: #ccc;
+    --mobile-player:#cccccc15;
 }
 
 
@@ -612,6 +613,8 @@ section {
     z-index: 9999;
     padding: 10px 20px;
     flex-direction: column;
+    background-color: var(--mobile-player);
+    
 
 
 }
