@@ -677,11 +677,17 @@ section {
     padding: 10px;
 }
 
-
-#MBpref,
-#MBnext,
 #repeat,
-#shuffle {
+#shuffle{
+     border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 1.6rem;
+
+}
+ 
+#MBpref,
+#MBnext{
     border: none;
     background-color: transparent;
     color: white;
