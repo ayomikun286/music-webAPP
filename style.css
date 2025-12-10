@@ -620,18 +620,17 @@ section {
 }
 
 .openAndClose{
-    animation: mobile 0.8s ease;
      transform: translateY(0px);
    
 }
 
 
-@keyframes mobile {
+/* @keyframes mobile {
     from{
         opacity: 0;
     }
     
-}
+} */
 
 
 
