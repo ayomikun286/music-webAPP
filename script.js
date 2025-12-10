@@ -88,22 +88,31 @@ function playTracks() {
 
 
 
-function playBTN() {
+async function playBTN() {
     const audio = document.getElementById('audio');
-    const playtrack = document.getElementById('play');
-    const icon = document.querySelector('#play i');
-    playtrack.addEventListener('click', () => {
+    const playtrack = document.querySelectorAll('#play');
+    const icon = document.querySelector('#tabCon');
+    const playCon = document.getElementById('playCon')
+    // const url = await allMusic();
+
+    playtrack.forEach(play =>{
+         play.addEventListener('click', async() => {
         if (audio.paused) {
             audio.play();
-            icon.classList.replace('fa-play', 'fa-pause');
+           icon.classList.replace('fa-play', 'fa-pause');
+            playCon.classList.replace('fa-play', 'fa-pause');
         } else {
             audio.pause();
-            icon.classList.replace('fa-pause', 'fa-play');
+             icon.classList.replace('fa-play', 'fa-pause');
+              playCon.classList.replace('fa-pause','fa-play');
         }
 
 
 
     });
+
+    })
+
 };
 playBTN();
 
@@ -424,28 +433,28 @@ clostplayerControl();
 
 
 
-function heroSectionDy() {
-    const heroImages = [
-        { img: "image/prety.jpg" },
-        { img: "image/happy.jpg" },
-        { img: "image/boy.jpg" }
+// function heroSectionDy() {
+//     const heroImages = [
+//         { img: "image/prety.jpg" },
+//         { img: "image/happy.jpg" },
+//         { img: "image/boy.jpg" }
 
-    ];
+//     ];
 
 
-    let i = 0;
-    function heroDynamic() {
+//     let i = 0;
+//     function heroDynamic() {
 
-        const heroCard = document.getElementById('heroCard');
-        heroCard.style.backgroundImage = `url(${heroImages[i].img})`
-        i++;
-        if (i >= heroImages.length) { i = 0; };
-    }
-    heroDynamic();
+//         const heroCard = document.getElementById('heroCard');
+//         heroCard.style.backgroundImage = `url(${heroImages[i].img})`
+//         i++;
+//         if (i >= heroImages.length) { i = 0; };
+//     }
+//     heroDynamic();
 
-    setInterval(heroDynamic, 5000);
-}
-heroSectionDy();
+//     setInterval(heroDynamic, 5000);
+// }
+// heroSectionDy();
 
 
 

@@ -2,9 +2,10 @@
   "name": "music-web-app",
   "version": "1.0.0",
   "description": "",
-  "main": "music.js",
+  "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +14,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/ayomikun286/music-webAPP/issues"
   },
@@ -24,8 +24,5 @@
     "express": "^5.1.0",
     "mongodb": "^7.0.0",
     "mongoose": "^9.0.0"
-  },
-  "scripts":{
-    "start":"nodemon app/server.js"
   }
 }
