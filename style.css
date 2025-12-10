@@ -3,7 +3,7 @@
 
     --card: rgb(20, 20, 20);
     --accet: #ccc;
-    --mobile-player:#cccccc15;
+    --mobile-player: #cccccc15;
 }
 
 
@@ -605,7 +605,6 @@ section {
     /* backdrop-filter: blur(30px); */
     border-top: 1px solid;
     height: 100vh;
-    display: flex;
     justify-content: start;
     align-items: center;
     overflow-y: scroll;
@@ -614,17 +613,32 @@ section {
     padding: 10px 20px;
     flex-direction: column;
     background-color: var(--mobile-player);
-
     padding-bottom: 30px;
+    transition: 0.8s ease;
+     display: flex;
+  transform: translateY(1000px);
+}
+
+.openAndClose{
+    animation: mobile 0.8s ease;
+     transform: translateY(0px);
+   
+}
+
+
+@keyframes mobile {
+    from{
+        opacity: 0;
+    }
     
-
-
 }
 
 
-.heroSection,header,footer{
+
+/* .heroSection,header,footer{
+
     filter: blur(50px);
-}
+} */
 .mobilePlayDiv::-webkit-scrollbar {
     display: none;
 }
@@ -637,7 +651,8 @@ section {
 
 
 }
-.mobileBtnControl{
+
+.mobileBtnControl {
     display: flex;
     gap: 30px;
     align-items: center;
@@ -645,7 +660,7 @@ section {
 
 }
 
-#MBplay{
+#MBplay {
     border: none;
     height: 70px;
     width: 70px;
@@ -655,11 +670,14 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-     padding: 10px;
+    padding: 10px;
 }
 
 
-#MBpref,#MBnext,#repeat,#shuffle{
+#MBpref,
+#MBnext,
+#repeat,
+#shuffle {
     border: none;
     background-color: transparent;
     color: white;
@@ -701,45 +719,49 @@ section {
 }
 
 .mobileProgress {
-   margin-top: 20px;
+    margin-top: 20px;
     width: 100%;
     display: flex;
     flex-direction: column;
 
 
 }
-.progresMobile{
-    background-color:gray;
+
+.progresMobile {
+    background-color: gray;
     height: 3px;
     width: 100%;
     border-radius: 20px;
-    
+
 }
-.bar{
+
+.bar {
     width: 40px;
     height: 100%;
-    background-color:var(--background-color);
+    background-color: var(--background-color);
     border-radius: 20px;
     position: relative;
 }
-.bar::after{
+
+.bar::after {
     content: "";
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color:var(--background-color);
+    background-color: var(--background-color);
     border-radius: 50%;
     right: -7px;
     top: -3px;
 }
 
-.timeDura{
+.timeDura {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
 }
-.mobileConto{
+
+.mobileConto {
     display: flex;
     justify-content: space-between;
     width: 100%;
