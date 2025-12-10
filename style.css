@@ -246,8 +246,7 @@ footer {
 
 }
 
-#durationEnd,
-#durationStart {
+.dura{
     font-size: 0.8em;
     display: inline-block;
     justify-content: center;
@@ -700,7 +699,7 @@ section {
 }
 
 .modilePlayIMG {
-    background-color: red;
+  
     width: 90%;
     height: 350px;
     min-height: 350px;
@@ -746,7 +745,7 @@ section {
 }
 
 .bar {
-    width: 40px;
+    width: 0%;
     height: 100%;
     background-color: var(--background-color);
     border-radius: 20px;
@@ -781,6 +780,8 @@ section {
 }
 
 
+
+
 @media (max-width:900px) {
 
     .progress-bar {
@@ -788,10 +789,12 @@ section {
 
     }
 
-    .progress #durationStart,
-    #durationEnd {
-        display: none;
+   .dura{
+    display: none;
+   }
 
+    .sartMOBILE,.endMOBILE{
+        display: flex;
     }
 
     .progress {

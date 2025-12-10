@@ -56,6 +56,8 @@ function playTracks() {
     const audio = document.getElementById('audio');
     const playTrackBtn = document.querySelectorAll('.playTrackBtn');
     const iconAll = document.querySelector('#play i')
+    const modilePlayIMG = document.getElementById('modilePlayIMG')
+
     playTrackBtn.forEach((btn, index) => {
 
         btn.addEventListener('click', async () => {
@@ -65,6 +67,7 @@ function playTracks() {
             currentIndex = index;
             audio.src = url;
             playerImage.src = trackImage;
+            modilePlayIMG.style.backgroundImage = `url('${trackImage}')`;
             await audio.play();
             updateSongTab();
 
@@ -148,6 +151,8 @@ async function updateSongTab() {
         const Songs = await allMusic();
         const songtitle = document.getElementById('titlE');
         const Tabname = document.getElementById('Tabname');
+        const songTitle = document.getElementById('songTitle')
+        const artName = document.getElementById('artName');
 
         if (!Songs[currentIndex]) {
             songtitle.textContent = "Now playing: -- "
@@ -155,8 +160,10 @@ async function updateSongTab() {
             return;
 
         }
-        songtitle.textContent = `${Songs[currentIndex].title}`
-        Tabname.textContent = `${Songs[currentIndex].name}`
+        songtitle.textContent = `${Songs[currentIndex].title}`;
+        songTitle.textContent = `${Songs[currentIndex].title}`;
+        Tabname.textContent = `${Songs[currentIndex].name}`;
+        artName.textContent = `${Songs[currentIndex].name}`;
 
     } catch (err) {
         console.log("Now Playing error", err.message)
@@ -254,12 +261,14 @@ function progressBar() {
     const progressBar = document.querySelector('.progress-bar');
     const probar = document.getElementById('proBar');
     const audio = document.getElementById('audio');
-    const durationEnd = document.getElementById('durationEnd');
-    const durationStart = document.getElementById('durationStart');
-
+    const durationEnd = document.querySelectorAll('#durationEnd');
+    const durationStart = document.querySelectorAll('#durationStart');
+    const progresMobile = document.querySelector('.progresMobile')
+    const bar = document.querySelector('.bar');
     audio.addEventListener('timeupdate', () => {
         const progressParcent = (audio.currentTime / audio.duration) * 100;
         probar.style.width = `${progressParcent}%`;
+        bar.style.width = `${progressParcent}%`;
 
         const currentMin = Math.floor(audio.currentTime / 60);
         const currentSec = Math.floor(audio.currentTime % 60);
@@ -268,9 +277,11 @@ function progressBar() {
 
         const currentTimeFormatted = `${currentMin}:${currentSec < 10 ? '0' : ''}${currentSec}`;
         const totalTimeFormatted = `${totalMin}:${totalSec < 10 ? '0' : ''}${totalSec}`;
-        durationStart.textContent = `${currentTimeFormatted} `;
-        durationEnd.textContent = `${totalTimeFormatted}`;
+        // durationStart.textContent = `${currentTimeFormatted} `;
+        // durationEnd.textContent = `${totalTimeFormatted}`;
 
+        durationStart.forEach( start =>{ start.textContent = `${currentTimeFormatted} `;})
+        durationEnd.forEach(end =>{ end.textContent = `${totalTimeFormatted}`;})
         if (!isNaN(audio.duration)) {
 
         }
