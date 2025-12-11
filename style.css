@@ -603,7 +603,8 @@ section {
 .mobilePlayDiv {
     position: fixed;
     width: 100%;
-    left: 0px;
+    max-width: 500px;
+    left: 30%;
     top: 10px;
     /* backdrop-filter: blur(30px); */
     border-top: 1px solid;
@@ -617,9 +618,10 @@ section {
     flex-direction: column;
     background-color: var(--mobile-player);
     padding-bottom: 30px;
-    transition: 0.8s ease;
+    transition: 0.4s ease-in-out;
      display: flex;
-  transform: translateY(1000px);
+  transform: translateY(2000px);
+  align-self: center;
 }
 
 .openAndClose{
@@ -656,7 +658,7 @@ section {
 
 .mobileBtnControl {
     display: flex;
-    gap: 10px;
+    gap: 30px;
     align-items: center;
   
 
@@ -782,9 +784,23 @@ section {
 }
 
 
+@media (max-width:740px) {
+     .mobilePlayDiv {
 
+            left: 0px;
+        }
+    
+}
 
 @media (max-width:900px) {
+
+        .mobilePlayDiv {
+            left:0px;
+          max-width: 100%;
+           width: 100%;
+        }
+
+    
 
     .progress-bar {
         background-color: white;
