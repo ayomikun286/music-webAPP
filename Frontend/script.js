@@ -51,11 +51,12 @@ async function loadSong() {
 
 loadSong();
 
-
+// ----------------------music card play for all ----------------------//
 function playTracks() {
     const audio = document.getElementById('audio');
     const playTrackBtn = document.querySelectorAll('.playTrackBtn');
-    const iconAll = document.querySelector('#play i')
+    const Icon = document.querySelector('#tabCon');
+    const playCon = document.getElementById('playCon')
     const modilePlayIMG = document.getElementById('modilePlayIMG')
 
     playTrackBtn.forEach((btn, index) => {
@@ -76,14 +77,15 @@ function playTracks() {
             });
 
             icon.classList.replace('fa-play', 'fa-pause');
-            iconAll.classList.replace('fa-play', 'fa-pause');
+            Icon.classList.replace('fa-play', 'fa-pause');
+            playCon.classList.replace('fa-play', 'fa-pause');
         });
 
     });
 };
 
 
-
+// ------------------------------------------------//
 
 
 
@@ -433,28 +435,28 @@ clostplayerControl();
 
 
 
-// function heroSectionDy() {
-//     const heroImages = [
-//         { img: "image/prety.jpg" },
-//         { img: "image/happy.jpg" },
-//         { img: "image/boy.jpg" }
+function heroSectionDy() {
+    const heroImages = [
+        { img: "image/prety.jpg" },
+        { img: "image/happy.jpg" },
+        { img: "image/boy.jpg" }
 
-//     ];
+    ];
 
 
-//     let i = 0;
-//     function heroDynamic() {
+    let i = 0;
+    function heroDynamic() {
 
-//         const heroCard = document.getElementById('heroCard');
-//         heroCard.style.backgroundImage = `url(${heroImages[i].img})`
-//         i++;
-//         if (i >= heroImages.length) { i = 0; };
-//     }
-//     heroDynamic();
+        const heroCard = document.getElementById('heroCard');
+        heroCard.style.backgroundImage = `url(${heroImages[i].img})`
+        i++;
+        if (i >= heroImages.length) { i = 0; };
+    }
+    heroDynamic();
 
-//     setInterval(heroDynamic, 5000);
-// }
-// heroSectionDy();
+    setInterval(heroDynamic, 5000);
+}
+heroSectionDy();
 
 
 
