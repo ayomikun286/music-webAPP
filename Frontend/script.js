@@ -1,5 +1,6 @@
 import { saveMusicToCloud } from "./cloudStorage.js"
 import { allMusic } from "./music.js";
+import {API_URL} from "./config.js"
 
 
 
@@ -464,7 +465,7 @@ heroSectionDy();
 async function deleteAllSongs() {
     const loaded = document.getElementById('loaded');
 
-    const delet = await fetch('http://localhost:5000/deleteAllMusic', {
+    const delet = await fetch(`${API_URL}/deleteAllMusic`, {
 
         method: "DELETE"
     });

@@ -1,3 +1,4 @@
+import{API_URL} from "./config.js";
 export const allSongDIS = {
     name: '',
     title: '',
@@ -111,10 +112,9 @@ export function saveMusicToCloud() {
 
 
 
-
         // ===== save to backend ====//
         async function songsArray() {
-            const backendRes = await fetch("http://localhost:5000/saveMusic", {
+            const backendRes = await fetch(`${API_URL}/saveMusic`, {
 
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

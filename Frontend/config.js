@@ -1,0 +1,1 @@
+export const API_URL = "https://music-webapp-backend-production.up.railway.app";
