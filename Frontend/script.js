@@ -12,6 +12,7 @@ saveMusicToCloud();
 let currentIndex = 0;
 const songsLIST = document.getElementById('songRoll');
 const playerImage = document.getElementById('playerImage')
+const musicLIst = document.querySelector('.musicLIst');
 
 async function loadSong() {
     try {
@@ -43,6 +44,11 @@ async function loadSong() {
 
     } catch (err) {
         console.log("Error:", err.message)
+        musicLIst.innerHTML = `<h1>${err.message}<h1>
+                                <p>check your internet</p>  
+        `;
+        musicLIst.classList.add('musicErrorMsg')
+    
     };
 
 
